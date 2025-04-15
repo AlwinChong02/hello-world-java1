@@ -46,6 +46,7 @@ jar {
     from { sourceSets.main.output }
     archiveBaseName = 'hello-world-java'
     destinationDirectory = file('build/libs')
+    archiveVersion.set('V1')
 }
 // Task to copy resource files to a specific directory
 task copyResources(type: Copy) {
