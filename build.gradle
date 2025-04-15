@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'jacoco'
 }
 
 group 'com.example'
@@ -26,6 +27,13 @@ task RunTest(type: Test) {
     }
 }
 
+jacocoTestReport {
+    dependsOn test // tests are required before generating the report
+    reports {
+        xml.required = true
+        html.required = true
+    }
+}
 // Define a task to build an executable JAR file
 task BuildJar(type: Jar) {
     manifest {
